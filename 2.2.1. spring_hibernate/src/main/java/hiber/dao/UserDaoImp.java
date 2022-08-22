@@ -16,7 +16,6 @@ public class UserDaoImp implements UserDao {
    private SessionFactory sessionFactory;
 
    @Autowired
-
    public UserDaoImp(SessionFactory sessionFactory) {
       this.sessionFactory = sessionFactory;
    }
@@ -33,7 +32,7 @@ public class UserDaoImp implements UserDao {
       return query.getResultList();
    }
    @Override
-   public User getUserAtModel(String model, int series) {
+   public User getUserFromCar(String model, int series) {
       Query query = sessionFactory.getCurrentSession().createQuery("from Car where model = :paramModel AND series = :paramSeries");
       query.setParameter("paramModel", model);
       query.setParameter("paramSeries", series);
